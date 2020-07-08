@@ -1,5 +1,6 @@
 # Raspberry Pi variable speed cooling fan controller
 ![Docker Build](https://github.com/pilotak/docker-rpi-fan/workflows/docker%20build/badge.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/pilotak/rpi-fan) ![Docker Size](https://img.shields.io/docker/image-size/pilotak/rpi-fan?color=orange)
+
 Docker container that keeps the CPU temperature at desired level with PWM enabled fan based on [http://www.sensorsiot.org/variable-speed-cooling-fan-for-raspberry-pi-using-pwm-video138/](http://www.sensorsiot.org/variable-speed-cooling-fan-for-raspberry-pi-using-pwm-video138/)
 
 ## Docker-compose
