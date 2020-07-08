@@ -27,7 +27,7 @@ services:
 Bellow are all available variables
 
 | Variable | Description | Default value | Units |
-| --- | --- | :---:|
+| --- | --- | :---:| :---: |
 | `DESIRED_TEMP` | Temperature it tries to keep it at | 40 | °C |
 | `FAN_PIN` | PWM pin where is mosfet driver or load-switch connected to | 13 | |
 | `FAN_PWM_MIN` | Minimal duty cycle to turn the fan on | 20 | % |
