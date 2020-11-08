@@ -30,7 +30,7 @@ import sys
 import RPi.GPIO as GPIO
 
 
-DESIRED_TEMP = os.getenv('DESIRED_TEMP', 40)
+DESIRED_TEMP = float(os.getenv('DESIRED_TEMP', 40))
 
 FAN_PIN = int(os.getenv('FAN_PIN', 13))
 FAN_PWM_MIN = int(os.getenv('FAN_PWM_MIN', 20))
