@@ -1,13 +1,18 @@
-FROM python:3-alpine
+# Builder
+FROM python:3.8-slim as builder
+
+COPY ./requirements.txt ./
+
+RUN apt update \
+    && apt install -y --no-install-recommends build-essential \
+    && pip3 install --user -r requirements.txt
+
+# Executor
+FROM python:3.8-slim
 
 WORKDIR /app
 
-COPY . /app
+COPY --from=builder /root/.local /root/.local
+COPY ./fan.py ./
 
-RUN apk update \
-&& apk add build-base raspberrypi \
-&& pip3 install --trusted-host pypi.python.org -r requirements.txt \
-&& apk del --purge build-base \
-&& rm -rf /var/cache/apk/*
-
-CMD ["python3", "-u", "fan.py"]
+CMD ["python", "-u", "./fan.py"]
