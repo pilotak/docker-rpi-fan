@@ -32,15 +32,15 @@ import RPi.GPIO as GPIO
 
 DESIRED_TEMP = os.getenv('DESIRED_TEMP', 40)
 
-FAN_PIN = os.getenv('FAN_PIN', 13)
-FAN_PWM_MIN = os.getenv('FAN_PWM_MIN', 20)
-FAN_PWM_MAX = os.getenv('FAN_PWM_MAX', 100)
-FAN_PWM_FREQ = os.getenv('FAN_PWM_FREQ', 17)
+FAN_PIN = int(os.getenv('FAN_PIN', 13))
+FAN_PWM_MIN = int(os.getenv('FAN_PWM_MIN', 20))
+FAN_PWM_MAX = int(os.getenv('FAN_PWM_MAX', 100))
+FAN_PWM_FREQ = int(os.getenv('FAN_PWM_FREQ', 17))
 
-P_TEMP = os.getenv('P_TEMP', 18.0)
-I_TEMP = os.getenv('I_TEMP', 0.3)
+P_TEMP = float(os.getenv('P_TEMP', 18.0))
+I_TEMP = float(os.getenv('I_TEMP', 0.3))
 
-READ_INTERVAL = os.getenv('READ_INTERVAL', 2)
+READ_INTERVAL = int(os.getenv('READ_INTERVAL', 2))
 
 fanSpeed = FAN_PWM_MAX
 sum = 0
