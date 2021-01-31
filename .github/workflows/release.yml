@@ -15,7 +15,7 @@ jobs:
       - name: Prepare
         id: prepare
         run: |
-          git fetch --prune --unshallow --tags
+          git fetch --prune --unshallow --tags -f
 
           VERSION=$(git tag --points-at HEAD)
           VERSION=${VERSION//v}
@@ -28,12 +28,9 @@ jobs:
 
           echo ::set-output name=image_tags::${IMAGE_TAGS}
           echo ::set-output name=version::${VERSION}
-          echo ::set-output name=changelog::${CHANGELOG}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
-        with:
-          platforms: linux/arm/v6,linux/arm/v7,linux/arm64
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -49,6 +46,7 @@ jobs:
         with:
           push: true
           tags: ${{ steps.prepare.outputs.image_tags }}
+          platforms: linux/arm/v6,linux/arm/v7,linux/arm64
 
       - name: Create Release
         uses: actions/create-release@v1
